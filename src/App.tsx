@@ -1,9 +1,13 @@
-import Parent from "./props/Parent";
+// import Parent from "./props/Parent";
+import GuestList from "./state/GuestList";
+import GuestSearch from "./state/GuestSearch";
 
 const App = () => {
   return (
     <>
-      <Parent />
+      {/* <Parent /> */}
+      <GuestSearch />
+      <GuestList />
     </>
   );
 };

@@ -2,7 +2,7 @@ import React from "react";
 
 import { Child } from "./Child";
 
-const Parent = () => {
+const Parent: React.FC = () => {
   const handleClick = () => {
     console.log("Clicked");
   };
