@@ -1,8 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 const GuestList: React.FC = () => {
+  const inputRef = useRef<HTMLInputElement | null>(null);
   const [name, setName] = useState<string>("");
   const [guests, setGuests] = useState<string[]>([]);
+
+  useEffect(() => {
+    if (!inputRef.current) {
+      return;
+    }
+    inputRef.current.focus();
+  }, []);
 
   const handleChange = (e: any) => {
     e.preventDefault();
@@ -28,6 +36,7 @@ const GuestList: React.FC = () => {
         placeholder="Type Name..."
         value={name}
         onChange={(e) => handleChange(e)}
+        ref={inputRef}
       />
       <br />
       <button onClick={handleClick}>Add Guest</button>
