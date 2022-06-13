@@ -1,5 +1,11 @@
+import Parent from "./props/Parent";
+
 const App = () => {
-  return <>Hello TypeScript</>;
+  return (
+    <>
+      <Parent />
+    </>
+  );
 };
 
 export default App;
