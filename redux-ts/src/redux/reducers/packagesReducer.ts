@@ -1,13 +1,22 @@
 import { Action } from "../actions";
 import { ActionTypes } from "../action-types";
 
-interface State {
+export interface State {
   loading: boolean;
   error: string | null;
   data: string[];
 }
 
-const packagesReducer = (state: State, action: Action): State => {
+const initialState = {
+  loading: false,
+  error: null,
+  data: [],
+};
+
+const packagesReducer = (
+  state: State = initialState,
+  action: Action
+): State => {
   switch (action.type) {
     case ActionTypes.SEARCH_PACKAGES:
       return {
