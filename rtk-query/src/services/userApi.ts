@@ -6,15 +6,15 @@ import { User } from "../types";
 export const userApi = createApi({
   reducerPath: "userApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://jsonplaceholder.typicode.com/users",
+    baseUrl: "http://localhost:5000",
   }),
   endpoints: (builder) => ({
     getAllUsers: builder.query<User[], void>({
-      query: () => `/`,
+      query: () => `/users`,
     }),
 
     getUserById: builder.query<User, number>({
-      query: (id) => `/${id}`,
+      query: (id) => `/users/${id}`,
     }),
   }),
 });

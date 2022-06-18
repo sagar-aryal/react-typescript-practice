@@ -8,6 +8,7 @@ const App = () => {
   return (
     <div>
       <h1>React Redux Toolkits RTK Query Practice</h1>
+      <button>Add New User</button>
       {isLoading && <h2>Loading...</h2>}
       {error && <h2>Something went wroung.</h2>}
       {isSuccess &&
@@ -15,7 +16,7 @@ const App = () => {
           <div key={user.id}>
             <h3>{user.name}</h3>
             <p>{user.email}</p>
-            <button>View More</button>
+            <button>Update</button> <button>Delete</button>
           </div>
         ))}
     </div>
