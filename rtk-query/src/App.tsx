@@ -1,25 +1,21 @@
 import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import { useGetAllUsersQuery } from "./services/userApi";
+import HomePage from "./pages/HomePage";
+import Users from "./components/Users";
+import SingleUser from "./components/UserDetails";
 
 const App = () => {
-  const { data, error, isLoading, isSuccess } = useGetAllUsersQuery();
-  // console.log(data);
   return (
-    <div>
-      <h1>React Redux Toolkits RTK Query Practice</h1>
-      <button>Add New User</button>
-      {isLoading && <h2>Loading...</h2>}
-      {error && <h2>Something went wroung.</h2>}
-      {isSuccess &&
-        data?.map((user) => (
-          <div key={user.id}>
-            <h3>{user.name}</h3>
-            <p>{user.email}</p>
-            <button>Update</button> <button>Delete</button>
-          </div>
-        ))}
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route index element={<HomePage />} />
+        <Route path="users">
+          <Route index element={<Users />} />
+          <Route path=":id" element={<SingleUser />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 };
 
