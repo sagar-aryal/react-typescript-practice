@@ -3,17 +3,16 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import HomePage from "./pages/HomePage";
 import Users from "./components/Users";
-import SingleUser from "./components/UserDetails";
+import SingleUser from "./components/SingleUser";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route index element={<HomePage />} />
-        <Route path="users">
-          <Route index element={<Users />} />
-          <Route path=":id" element={<SingleUser />} />
-        </Route>
+        {/* <Route index element={<HomePage />} /> */}
+
+        <Route path="/" element={<Users />} />
+        <Route path="users/:id" element={<SingleUser />} />
       </Routes>
     </BrowserRouter>
   );
